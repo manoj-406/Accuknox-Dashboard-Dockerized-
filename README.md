@@ -75,7 +75,7 @@ WORKDIR /Accuknox-Task
 EXPOSE 5174
 CMD ["npm", "run", "dev", "--", "--host"]
 ```
-
+![image](images/2.1.png)
 ### Multi-Stage Build Explanation
 1. The first stage (`builder`) is responsible for installing all dependencies (`nginx`, `npm`, and the project's dependencies).
 2. The second stage copies the built application from the first stage and runs it in a smaller, production-friendly container.
@@ -105,3 +105,6 @@ We welcome contributions! Feel free to fork the repository and submit pull reque
 - **Dockerfile Overview**: Provides insights into how the Dockerfile is structured, particularly the multi-stage build.
 - **Nginx Setup**: Mentions Nginx usage, leaving room for future production optimizations.
 - **Customization**: Explains how users can modify the project to fit their needs.
+
+![image](images/3.1.png)
+![image](images/1.1.png)
