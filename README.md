@@ -61,7 +61,7 @@ The `Dockerfile` is structured using multi-stage builds to optimize the final im
 - **Final Stage**: Runs the application using a lightweight Node.js image.
 
 ```Dockerfile
-FROM node:lts-iron AS builder
+FROM node:18 AS builder
 LABEL Author="Manoj"
 WORKDIR /tmp/Accuknox-Task
 COPY . .
@@ -69,11 +69,11 @@ RUN apt update && apt install nginx -y
 RUN apt install npm -y
 RUN npm install
 
-FROM node:lts-alpine3.20
+FROM node:18-alpine
 COPY --from=builder /tmp/Accuknox-Task /Accuknox-Task
 WORKDIR /Accuknox-Task
 EXPOSE 5174 5173
-CMD ["npm", "run", "dev", "--", "--host"]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
 ```
 ![image](images/2.1.png)
 ### Multi-Stage Build Explanation
@@ -106,5 +106,7 @@ We welcome contributions! Feel free to fork the repository and submit pull reque
 - **Nginx Setup**: Mentions Nginx usage, leaving room for future production optimizations.
 - **Customization**: Explains how users can modify the project to fit their needs.
 
+
+
 ![image](images/3.1.png)
-![image](images/1.1.png)
+![image](images/1.1.0.png)
