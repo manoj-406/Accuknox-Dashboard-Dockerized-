@@ -72,7 +72,7 @@ RUN npm install
 FROM node:lts-alpine3.20
 COPY --from=builder /tmp/Accuknox-Task /Accuknox-Task
 WORKDIR /Accuknox-Task
-EXPOSE 5174
+EXPOSE 5174 5173
 CMD ["npm", "run", "dev", "--", "--host"]
 ```
 ![image](images/2.1.png)
