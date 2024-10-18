@@ -34,6 +34,8 @@ Make sure you have the following installed on your system:
 3. Start the development server:
    ```bash
    npm run dev
+   to expose network 
+   npm run dev -- --host
    ```
 
 4. Open your browser and navigate to `http://localhost:5174` to view the dashboard.
@@ -72,7 +74,7 @@ RUN npm install
 FROM node:18-alpine
 COPY --from=builder /tmp/Accuknox-Task /Accuknox-Task
 WORKDIR /Accuknox-Task
-EXPOSE 5174 5173
+EXPOSE 5173
 CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
 ```
 ![image](images/2.1.png)

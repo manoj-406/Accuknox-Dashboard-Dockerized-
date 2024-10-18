@@ -9,5 +9,5 @@ RUN npm install
 FROM node:18-alpine
 COPY --from=builder /tmp/Accuknox-Task /Accuknox-Task
 WORKDIR /Accuknox-Task
-EXPOSE 5173 5174
+EXPOSE 5173
 CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
